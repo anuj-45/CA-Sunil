@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: ca-sunil
+    env: static
+    buildCommand: echo "No build required"
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+      - path: /styles.css
+        name: Content-Type
+        value: text/css
+      - path: /script.js
+        name: Content-Type
+        value: application/javascript
